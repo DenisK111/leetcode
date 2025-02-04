@@ -12,7 +12,7 @@ namespace Leeetcode.Problems.Easy
     /// 1800
     /// </summary>
 
-    internal static class MaxAscendingSubArraySum
+    internal class MaxAscendingSubArraySum
     {
         public static int MaxAscendingSum(int[] nums)
         {
@@ -37,11 +37,6 @@ namespace Leeetcode.Problems.Easy
 
             return max;
         }
-    }
-
-    [TestFixture]
-    public class Test()
-    {
 
         [TestCase(new int[] { 10, 20, 30, 5, 10, 50 }, 65)]
         [TestCase(new int[] { 10, 20, 30, 40, 50 }, 150)]
@@ -51,18 +46,10 @@ namespace Leeetcode.Problems.Easy
         public void MaxAscendingSum_ReturnsCorrectSum(int[] numbers, int expectedSum)
         {
             // Act
-            int result = MaxAscendingSubArraySum.MaxAscendingSum(numbers);
+            int result = MaxAscendingSum(numbers);
 
             // Assert
             result.ShouldBe(expectedSum);
         }
-
-        public static IEnumerable<object[]> GetArrayTestData()
-            {
-                yield return new object[] { new int[] { 10, 20, 30, 5, 10, 50 }, 65 };
-                yield return new object[] { new int[] { 10, 20, 30, 40, 50 }, 150 };
-                yield return new object[] { new int[] { 12, 17, 15, 13, 10, 11, 12 }, 33 };
-                yield return new object[] { new int[] { 1 }, 1 };
-            }        
-    }
+    }   
 }
