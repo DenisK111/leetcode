@@ -8,6 +8,10 @@ using System.Threading.Tasks;
 
 namespace Leeetcode.Problems.Easy
 {
+    /// <summary>
+    /// 1800
+    /// </summary>
+
     internal static class MaxAscendingSubArraySum
     {
         public static int MaxAscendingSum(int[] nums)
