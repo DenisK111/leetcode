@@ -8,6 +8,10 @@ using System.Threading.Tasks;
 
 namespace Leeetcode.Problems.Easy
 {
+    /// <summary>
+    /// 14
+    /// </summary>
+
     internal class LogestCommonPrefix
     {
         public string LongestCommonPrefixSolve(string[] strs)
