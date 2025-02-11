@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NUnit.Framework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,5 +31,13 @@ namespace Leeetcode.Problems.Medium
 
             return string.Join("", result.SkipWhile(x => x == 0));
         }
+
+        [TestCase("", "", ExpectedResult = "")]
+        [TestCase("0", "124", ExpectedResult = "0")]
+        [TestCase("2", "3", ExpectedResult = "6")]
+        [TestCase("123", "456", ExpectedResult = "56088")]
+        public string Test(string str1, string str2) => Multiply(str1, str2);
     }
+
+   
 }
