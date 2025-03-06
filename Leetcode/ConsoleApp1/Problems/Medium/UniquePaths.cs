@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NUnit.Framework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,7 @@ namespace Leeetcode.Problems.Medium
         {
             var count = 0;
             int finish = 2;
+            int visited = 1;
 
             var matrix = new int[m, n];
             matrix[m - 1, n - 1] = finish;
@@ -28,17 +30,17 @@ namespace Leeetcode.Problems.Medium
             void Traverse(int[,] matrix, int row, int col)
             {
                 if (row >= rowLength ||  col >= colLength) return;
-                if (matrix[row, col] == 2)
+                if (matrix[row, col] == finish)
                 {
                     PrintMatrix(matrix);
                     Console.WriteLine();
                     count++;
                     return;
                 }
-                matrix[row, col] = 1;   
+                matrix[row, col] = visited;   
                 Traverse(matrix, row + 1, col);
                 Traverse(matrix, row, col + 1);
-                matrix[row, col] = 0;
+                matrix[row, col] = visited;
             }
         }
 
@@ -54,6 +56,17 @@ namespace Leeetcode.Problems.Medium
 
                 Console.WriteLine();
             }
-        }
+        }        
     }
+
+    public class UniquePathsTests
+    {
+        [TestCase(3, 7,ExpectedResult = 28)]
+        [TestCase(3, 2, ExpectedResult = 3)]        
+        [TestCase(1, 2, ExpectedResult = 1)]
+        [TestCase(1, 10, ExpectedResult = 1)]
+        [TestCase(2, 2, ExpectedResult = 2)]
+        public int Test(int m, int n) => new UniquePaths().Solve(m, n);
+    }
+    
 }
